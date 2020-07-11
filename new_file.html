@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<link href="css/style.css" type="text/css" rel="stylesheet"/>
+	</head>
+	<body>
+		<div class="tab">
+			<ul>
+				<li qh="a1" onmouseover="a(this)">首页</li>
+				<li qh="a2" onmouseover="a(this)">线路</li>
+				<li qh="a3" onmouseover="a(this)">目的地</li>
+				<li qh="a4" onmouseover="a(this)">门票</li>
+				<li qh="a5" onmouseover="a(this)">机票</li>
+				<li qh="a6" onmouseover="a(this)">酒店</li>
+				<li qh="a7" onmouseover="a(this)">签订</li>
+				<li qh="a8" onmouseover="a(this)">个人空间</li>
+			</ul>
+		</div>
+		<div style="clear: both;">
+			<div id="a1">
+				出境游热推：东南亚1111
+			</div>
+			<div id="a2" class="hide">
+				出境游热推：东南亚2222
+			</div>
+			<div id="a3" class="hide">
+				出境游热推：东南亚3333
+			</div>
+			<div id="a4" class="hide">
+				出境游热推：东南亚4444
+			</div>
+			<div id="a5" class="hide">
+				出境游热推：东南亚5555
+			</div>
+			<div id="a6" class="hide">
+				出境游热推：东南亚6666
+			</div>
+			<div id="a7" class="hide">
+				出境游热推：东南亚7777
+			</div>
+			<div id="a8" class="hide">
+				出境游热推：东南亚8888
+			</div>
+		</div>
+		<div class="slideShow">
+		   <!--图片布局开始-->
+		   <ul>
+		    <li><a href="#"><img src="img/4.png" /></a></li>
+		    <li><a href="#"><img src="img/5.png" /></a></li>
+		    <li><a href="#"><img src="img/6.png" /></a></li>
+		   </ul>
+		   <!--图片布局结束-->
+		    
+		   <!--按钮布局开始-->
+		   <div class="showNav">
+		    <span class="active">1</span>
+		    <span>2</span>
+		    <span>3</span>
+		   </div>
+		   <!--按钮布局结束-->
+		  </div>
+		  <div class="tab">
+		  	<ul>
+		  		<li qh="b1" onclick="b(this)">用户点评（8）</li>
+		  		<li qh="b2" onclick="b(this)">满意（6）</li>
+		  		<li qh="b3" onclick="b(this)">一般（1）</li>
+		  		<li qh="b4" onclick="b(this)">不满意（1）</li>
+		  	</ul>
+		  </div>
+		  <div style="clear: both;">
+		  	<div id="b1">
+				<div style="clear: both;">
+					<img src="img/11.png"  style="float: left;margin-right: 15px;"/>
+				<div style="float: left;">白女士    满意</div>
+				<img src="img/12.png" />
+				</div>
+		  		<div style="clear: both;">
+		  			<img src="img/11.png"  style="float: left;margin-right: 15px;"/>
+		  		<div style="float: left;">白女士    满意</div>
+		  		<img src="img/12.png" />
+		  		</div>
+				<div style="clear: both;">
+					<img src="img/11.png"  style="float: left;margin-right: 15px;"/>
+				<div style="float: left;">白女士    满意</div>
+				<img src="img/12.png" />
+				</div>
+				<div style="clear: both;">
+					<img src="img/11.png"  style="float: left;margin-right: 15px;"/>
+				<div style="float: left;">白女士    满意</div>
+				<img src="img/12.png" />
+				</div>
+				<div style="clear: both;">
+					<img src="img/11.png"  style="float: left;margin-right: 15px;"/>
+				<div style="float: left;">白女士    满意</div>
+				<img src="img/12.png" />
+				</div>
+		  	</div>
+		  	<div id="b2" class="hide">
+		  		<div style="clear: both;">
+		  			<img src="img/11.png"  style="float: left;margin-right: 15px;"/>
+		  		<div style="float: left;">白女士    满意111111</div>
+		  		<img src="img/12.png" />
+		  		</div>
+		  	</div>
+		  	<div id="b3" class="hide">
+		  		<div style="clear: both;">
+		  			<img src="img/11.png"  style="float: left;margin-right: 15px;"/>
+		  		<div style="float: left;">白女士    一般222222</div>
+		  		<img src="img/12.png" />
+		  		</div>
+		  	</div>
+		  	<div id="b4" class="hide">
+		  		<div style="clear: both;">
+		  			<img src="img/11.png"  style="float: left;margin-right: 15px;"/>
+		  		<div style="float: left;">白女士    不满意33333</div>
+		  		<img src="img/12.png" />
+		  		</div>
+		  	</div>
+		  </div>
+		<script src="js/jquery-1.12.4.js"></script>
+		<script>
+			function a(jiedian){
+				var getele = $(jiedian).attr("qh");
+				$("#"+getele).removeClass("hide").siblings().addClass("hide");
+			}
+			function b(jiedian){
+				var getele = $(jiedian).attr("qh");
+				$("#"+getele).removeClass("hide").siblings().addClass("hide");
+			}
+			$(document).ready(function(){
+			 var slideShow=$(".slideShow"),  //获取最外层框架的名称
+			  ul=slideShow.find("ul"),  
+			  showNumber=slideShow.find(".showNav span"),//获取按钮
+			  oneWidth=slideShow.find("ul li").eq(0).width(); //获取每个图片的宽度
+			  var timer=null; //定时器返回值，主要用于关闭定时器
+			  var iNow=0;  //iNow为正在展示的图片索引值，当用户打开网页时首先显示第一张图，即索引值为0
+			   
+			  /*手动点击按钮进行图片轮播代码开始*/
+			  showNumber.on("click",function(){   //为每个按钮绑定一个点击事件  
+			   $(this).addClass("active").siblings().removeClass("active"); //按钮点击时为这个按钮添加高亮状态，并且将其他按钮高亮状态去掉
+			   var index=$(this).index(); //获取哪个按钮被点击，也就是找到被点击按钮的索引值
+			   iNow=index;
+			   ul.animate({
+			    "left":-oneWidth*iNow, //注意此处用到left属性，所以ul的样式里面需要设置position: relative; 让ul左移N个图片大小的宽度，N根据被点击的按钮索引值iNow确定
+			   })
+			  });
+			  /*手动点击按钮进行图片轮播代码结束*/
+			   
+			   
+			  /*定时自动轮播图片代码开始*/
+			  function autoPlay(){
+			   timer=setInterval(function(){  //打开定时器
+			   iNow++;       //让图片的索引值次序加1，这样就可以实现顺序轮播图片
+			   if(iNow>showNumber.length-1){ //当到达最后一张图的时候，让iNow赋值为第一张图的索引值，轮播效果跳转到第一张图重新开始
+			    iNow=0;
+			   }
+			   showNumber.eq(iNow).trigger("click"); //模拟触发数字按钮的click
+			   },2000); //2000为轮播的时间
+			  }
+			  autoPlay();
+			  /*定时自动轮播图片代码结束*/
+			   
+			  /*鼠标悬浮图片停止轮播代码开始*/
+			  slideShow.hover(
+			   function(){
+			    clearInterval(timer);
+			   },autoPlay
+			  );
+			  /*鼠标悬浮图片停止轮播代码结束*/
+			})
+		</script>
+	</body>
+</html>
